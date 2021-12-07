@@ -1,3 +1,6 @@
+import Separator from "./components/separator";
+import Header from "./components/header";
+
 import linkedin from "./images/linkedin-logo.png";
 import twitter from "./images/twitter-logo.png";
 import github from "./images/github-logo.png";
@@ -7,17 +10,12 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      <header className="header">
-        <div className="header__info">
-          <h1 className="header__info-name">Mindaugas Jačionis</h1>
-          <h2 className="header__info-title">Frontend Dev</h2>
-        </div>
-      </header>
+      <Header />
       <main className="main">
         <section className="section">
           <div className="content-box flex-1">
             <h3 className="content-box__title">Links</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content">
               <ul className="social-list">
                 <li className="social-list__item">
@@ -49,7 +47,7 @@ function App() {
           </div>
           <div className="content-box flex-2">
             <h3 className="content-box__title">About Me</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
@@ -64,14 +62,14 @@ function App() {
         <section className="section">
           <div className="content-box flex-1">
             <h3 className="content-box__title">Links</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content">
               <div className="school-info">
                 <p>School Name</p>
                 <p>2003 - 2015</p>
                 <p>Some Diploma</p>
               </div>
-              <hr className="separator separator--short" />
+              <Separator isShort />
               <div className="school-info">
                 <p>School Name</p>
                 <p>2003 - 2015</p>
@@ -81,7 +79,7 @@ function App() {
           </div>
           <div className="content-box flex-1 pills-box">
             <h3 className="content-box__title">Personal Skills</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content d-inline-flex flex-column">
               <span className="pill pill--green">Teamwork</span>
               <span className="pill pill--yellow">Communication</span>
@@ -90,7 +88,7 @@ function App() {
           </div>
           <div className="content-box flex-1 pills-box">
             <h3 className="content-box__title">Technical Skills</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content d-inline-flex flex-column">
               <span className="pill pill--green">HTML</span>
               <span className="pill pill--yellow">CSS</span>
@@ -101,7 +99,7 @@ function App() {
         <section className="section">
           <div className="content-box flex-1">
             <h3 className="content-box__title">Links</h3>
-            <hr className="separator separator--fancy" />
+            <Separator isFancy />
             <div className="content-box__content job-experience">
               <div className="experience">
                 <div className="experience__meta">
@@ -143,7 +141,6 @@ function App() {
                   <p>Spotify</p>
                   <p>2025 - present</p>
                 </div>
-
                 <p className="experience__description">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
                   Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia.
@@ -160,7 +157,7 @@ function App() {
         </section>
       </main>
       <footer className="footer">
-        <hr className="separator" />
+        <Separator />
         <div className="contacts">
           <div className="contacts__item">
             <h3 className="contacts__item-headline">Address</h3>
