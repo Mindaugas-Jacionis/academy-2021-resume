@@ -30,6 +30,10 @@ span {
   color: var(--black);
 }
 
+.d-flex {
+  display: flex;
+}
+
 .d-inline-flex {
   display: inline-flex;
 }

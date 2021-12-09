@@ -1,0 +1,9 @@
+.content-box .separator--fancy {
+  margin-bottom: 30px;
+}
+
+.content-box__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+}

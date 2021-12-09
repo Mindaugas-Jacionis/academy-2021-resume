@@ -4,28 +4,6 @@
   margin: 0 auto;
 }
 
-.pill {
-  color: var(--black);
-  background: var(--gray);
-  line-height: 20px;
-  padding: 0 10px;
-  border-radius: 20px;
-  display: inline-block;
-  text-align: center;
-}
-
-.pill--green {
-  background: var(--green);
-}
-
-.pill--yellow {
-  background: var(--yellow);
-}
-
-.pill--red {
-  background: var(--red);
-}
-
 .content-box.pills-box .pill {
   margin-bottom: 30px;
 }
@@ -55,6 +33,10 @@
   margin-bottom: 66px;
 }
 
+.section .d-flex {
+  gap: 0 66px;
+}
+
 .footer .separator {
   margin-bottom: 32px;
 }
@@ -62,16 +44,6 @@
 .link {
   color: var(--black);
   text-decoration: none;
-}
-
-.content-box .separator--fancy {
-  margin-bottom: 30px;
-}
-
-.content-box__title {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--black);
 }
 
 .link:hover,
