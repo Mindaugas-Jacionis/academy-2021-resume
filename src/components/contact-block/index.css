@@ -1,0 +1,16 @@
+.contact-box {
+  text-align: center;
+}
+
+.contact-box__headline {
+  background: var(--black);
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.contact-box__link {
+  display: block;
+}

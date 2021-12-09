@@ -1,12 +1,18 @@
+import React from "react";
+
 import Separator from "./components/separator";
 import Header from "./components/header";
 import Pill from "./components/pill";
 import ContentBox from "./components/content-box";
+import SocialsList from "./components/socials-list";
+import Experience from "./components/experience";
+import ContactBlock from "./components/contact-block";
 
 import linkedin from "./images/linkedin-logo.png";
 import twitter from "./images/twitter-logo.png";
 import github from "./images/github-logo.png";
 import blog from "./images/dev-to-logo.png";
+
 import "./App.css";
 
 function App() {
@@ -16,32 +22,29 @@ function App() {
       <main className="main">
         <section className="section">
           <ContentBox className="flex-1" title="Links">
-            <ul className="social-list">
-              <li className="social-list__item">
-                <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
-                  <img src={linkedin} alt="linkeding logo" />
-                  <p>Linkedin/UserName</p>
-                </a>
-              </li>
-              <li className="social-list__item">
-                <a href="https://twitter.com/mjacionis" target="_blank" rel="noreferrer">
-                  <img src={twitter} alt="twitter logo" />
-                  <p>@MJacionis</p>
-                </a>
-              </li>
-              <li className="social-list__item">
-                <a href="https://github.com/mindaugas-jacionis" target="_blank" rel="noreferrer">
-                  <img src={github} alt="github logo" />
-                  <p>mindaugas-jacionis</p>
-                </a>
-              </li>
-              <li className="social-list__item">
-                <a href="https://dev.to/" target="_blank" rel="noreferrer">
-                  <img src={blog} alt="dev.to logo" />
-                  <p>dev.to blog</p>
-                </a>
-              </li>
-            </ul>
+            <SocialsList
+              items={[
+                {
+                  img: linkedin,
+                  text: "Linkedin/UserName",
+                  url: "https://linkedin.com/",
+                  alt: "linkedin logo",
+                },
+                {
+                  img: twitter,
+                  text: "@MJacionis",
+                  url: "https://twitter.com/mjacionis",
+                  alt: "twitter logo",
+                },
+                {
+                  img: github,
+                  text: "mindaugas-jacionis",
+                  url: "https://github.com/mindaugas-jacionis",
+                  alt: "github logo",
+                },
+                { img: blog, text: "My Blog", url: "https://dev.to/", alt: "dev.to logo" },
+              ]}
+            />
           </ContentBox>
           <ContentBox className="flex-2" title="About Me">
             <p>
@@ -55,17 +58,19 @@ function App() {
         </section>
         <section className="section">
           <ContentBox className="flex-1" title="Education">
-            <div className="school-info">
-              <p>School Name</p>
-              <p>2003 - 2015</p>
-              <p>Some Diploma</p>
-            </div>
-            <Separator isShort />
-            <div className="school-info">
-              <p>School Name</p>
-              <p>2003 - 2015</p>
-              <p>Some Diploma</p>
-            </div>
+            {[
+              { name: "School One", period: "2003 - 2015", degree: "BA" },
+              { name: "School Two", period: "2017 - 2021", degree: "MBA" },
+            ].map(({ name, period, degree }, i, arr) => (
+              <React.Fragment key={i}>
+                <div className="school-info">
+                  <p>{name}</p>
+                  <p>{period}</p>
+                  <p>{degree}</p>
+                </div>
+                {arr.length - 1 !== i && <Separator isShort />}
+              </React.Fragment>
+            ))}
           </ContentBox>
           <div className="d-flex flex-2">
             <ContentBox title="Personal Skills" className="flex-1 pills-box">
@@ -83,57 +88,51 @@ function App() {
         <section className="section">
           <ContentBox className="flex-1" title="Experience">
             <div className="content-box__content job-experience">
-              <div className="experience">
-                <div className="experience__meta">
-                  <p>Wizard</p>
-                  <p>Spotify</p>
-                  <p>2025 - present</p>
-                </div>
-                <p className="experience__description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-                  Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia.
-                  Suspendisse non augue.
-                </p>
-                <ul className="experience__achievments">
-                  <li>Listened to whole DB of records</li>
-                  <li>Make logo</li>
-                  <li>Increase sales with use of A/B tests</li>
-                </ul>
-              </div>
-              <div className="experience">
-                <div className="experience__meta">
-                  <p>Wizard</p>
-                  <p>Spotify</p>
-                  <p>2025 - present</p>
-                </div>
-                <p className="experience__description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-                  Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia.
-                  Suspendisse non augue.
-                </p>
-                <ul className="experience__achievments">
-                  <li>Listened to whole DB of records</li>
-                  <li>Make logo</li>
-                  <li>Increase sales with use of A/B tests</li>
-                </ul>
-              </div>
-              <div className="experience">
-                <div className="experience__meta">
-                  <p>Wizard</p>
-                  <p>Spotify</p>
-                  <p>2025 - present</p>
-                </div>
-                <p className="experience__description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-                  Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia.
-                  Suspendisse non augue.
-                </p>
-                <ul className="experience__achievments">
-                  <li>Listened to whole DB of records</li>
-                  <li>Make logo</li>
-                  <li>Increase sales with use of A/B tests</li>
-                </ul>
-              </div>
+              {[
+                {
+                  company: "Shpotify",
+                  title: "Good Person",
+                  period: "2020 - 2025",
+                  achievements: [
+                    "Listened to whole DB of records",
+                    "Make logo",
+                    "Increase sales with use of A/B tests",
+                  ],
+                  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero. Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non augue.",
+                },
+                {
+                  company: "Shpotify",
+                  title: "Very Good Person",
+                  period: "2025 - 2030",
+                  achievements: [
+                    "Listened to whole DB of records",
+                    "Make logo",
+                    "Increase sales with use of A/B tests",
+                  ],
+                  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero. Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non augue.",
+                },
+                {
+                  company: "Shpotify",
+                  title: "Very Best Person",
+                  period: "2030 - present",
+                  achievements: [
+                    "Listened to whole DB of records",
+                    "Make logo",
+                    "Increase sales with use of A/B tests",
+                  ],
+                  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero. Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non augue.",
+                },
+              ].map(({ company, title, period, achievements, body }, i) => (
+                <Experience
+                  key={i}
+                  company={company}
+                  title={title}
+                  period={period}
+                  achievements={achievements}
+                >
+                  {body}
+                </Experience>
+              ))}
             </div>
           </ContentBox>
         </section>
@@ -141,34 +140,25 @@ function App() {
       <footer className="footer">
         <Separator />
         <div className="contacts">
-          <div className="contacts__item">
-            <h3 className="contacts__item-headline">Address</h3>
-            <p>Some st. 59,</p>
-            <p>Vilnius, Narnia</p>
-          </div>
-          <div className="contacts__item">
-            <h3 className="contacts__item-headline">Contact</h3>
-            <a className="link" href="tel:+37060000333">
-              +37060000333
-            </a>
-            <a className="link" href="mailto:email@test.dev">
-              email@test.dev
-            </a>
-          </div>
-          <div className="contacts__item">
-            <h3 className="contacts__item-headline">Social</h3>
-            <a className="link" href="https://linkedin.com/" target="_blank" rel="noreferrer">
-              Linkedin/mindaugas
-            </a>
-            <a
-              className="link"
-              href="https://twitter.com/mjacionis"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Twitter/@MJacionis
-            </a>
-          </div>
+          {[
+            { title: "Address", content: ["Some st. 59", "Vilnius, Narnia"] },
+            {
+              title: "Contact",
+              content: [
+                { href: "tel:+37060000333", text: "+37060000333" },
+                { href: "email@test.dev", text: "email@test.dev" },
+              ],
+            },
+            {
+              title: "Social",
+              content: [
+                { href: "https://linkedin.com/", text: "Linkedin/mindaugas" },
+                { href: "https://twitter.com/mjacionis", text: "Twitter/@MJacionis" },
+              ],
+            },
+          ].map((data, i) => (
+            <ContactBlock key={i} {...data} />
+          ))}
         </div>
       </footer>
     </div>

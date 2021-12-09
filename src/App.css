@@ -8,25 +8,6 @@
   margin-bottom: 30px;
 }
 
-.social-list__item {
-  margin-bottom: 8px;
-}
-
-.social-list__item a {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.social-list__item img {
-  margin-right: 16px;
-  opacity: 0.7;
-}
-
-.social-list__item a:hover img {
-  opacity: 1;
-}
-
 .section {
   display: flex;
   gap: 0 66px;
@@ -39,17 +20,6 @@
 
 .footer .separator {
   margin-bottom: 32px;
-}
-
-.link {
-  color: var(--black);
-  text-decoration: none;
-}
-
-.link:hover,
-.link:focus,
-.link:active {
-  color: var(--green);
 }
 
 .job-experience {
@@ -66,42 +36,11 @@
   border: none;
 }
 
-.experience__meta {
-  text-align: center;
-  margin-bottom: 26px;
-}
-
-.experience__description {
-  margin-bottom: 8px;
-}
-
-.experience__achievments {
-  list-style: disc;
-  list-style-position: inside;
-}
-
 .contacts {
   margin: 0px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 100px;
-}
-
-.contacts__item {
-  text-align: center;
-}
-
-.contacts__item .link {
-  display: block;
-}
-
-.contacts__item-headline {
-  background: var(--black);
-  text-transform: uppercase;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 24px;
-  margin-bottom: 12px;
 }
 
 .footer {

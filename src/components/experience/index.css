@@ -1,0 +1,13 @@
+.experience__meta {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.experience__description {
+  margin-bottom: 8px;
+}
+
+.experience__achievements {
+  list-style: disc;
+  list-style-position: inside;
+}
