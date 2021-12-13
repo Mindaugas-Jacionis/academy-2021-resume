@@ -43,3 +43,16 @@
   background: var(--black);
   padding: 0 40px;
 }
+
+.header__lang-select {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gray);
+  color: var(--black);
+  font-size: 16px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  appearance: none;
+}

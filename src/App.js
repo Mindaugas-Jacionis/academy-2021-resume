@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Separator from "./components/separator";
 import Header from "./components/header";
@@ -8,52 +8,24 @@ import SocialsList from "./components/socials-list";
 import Experience from "./components/experience";
 import ContactBlock from "./components/contact-block";
 
-import linkedin from "./images/linkedin-logo.png";
-import twitter from "./images/twitter-logo.png";
-import github from "./images/github-logo.png";
-import blog from "./images/dev-to-logo.png";
+import data from "./data";
 
 import "./App.css";
 
 function App() {
+  const [language, setLanguage] = useState("en");
+  const { links, about } = data[language];
+
   return (
     <div className="app">
-      <Header />
+      <Header language={language} setLanguage={setLanguage} />
       <main className="main">
         <section className="section">
-          <ContentBox className="flex-1" title="Links">
-            <SocialsList
-              items={[
-                {
-                  img: linkedin,
-                  text: "Linkedin/UserName",
-                  url: "https://linkedin.com/",
-                  alt: "linkedin logo",
-                },
-                {
-                  img: twitter,
-                  text: "@MJacionis",
-                  url: "https://twitter.com/mjacionis",
-                  alt: "twitter logo",
-                },
-                {
-                  img: github,
-                  text: "mindaugas-jacionis",
-                  url: "https://github.com/mindaugas-jacionis",
-                  alt: "github logo",
-                },
-                { img: blog, text: "My Blog", url: "https://dev.to/", alt: "dev.to logo" },
-              ]}
-            />
+          <ContentBox className="flex-1" title={links.title}>
+            <SocialsList items={links.items} />
           </ContentBox>
-          <ContentBox className="flex-2" title="About Me">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-              Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse
-              non augue egestas, dapibus justo et, lobortis ex. Vestibulum vitae mattis diam.
-              Vivamus eleifend diam vel tempor lacinia. Suspendisse non augue egestas, dapibus justo
-              et, lobortis ex.
-            </p>
+          <ContentBox className="flex-2" title={about.title}>
+            <p>{about.body}</p>
           </ContentBox>
         </section>
         <section className="section">
