@@ -7,6 +7,8 @@ import ContentBox from "./components/content-box";
 import SocialsList from "./components/socials-list";
 import Experience from "./components/experience";
 import ContactBlock from "./components/contact-block";
+import Timer from "./components/Timer";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 import data from "./data";
 
@@ -25,41 +27,74 @@ class App extends React.Component {
   //   console.log("componentWillMount");
   // }
 
-  async componentDidMount() {
-    console.log("componentDidMount");
-    // this.setLanguage("lt");
-  }
+  // async componentDidMount() {
+  //   console.log("componentDidMount");
+  //   // this.setLanguage("lt");
+  // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate", {
-      nextProps,
-      nextState,
-      currentState: this.state,
-      currentProps: this.props,
-    });
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("shouldComponentUpdate", {
+  //     nextProps,
+  //     nextState,
+  //     currentState: this.state,
+  //     currentProps: this.props,
+  //   });
 
-    // We don't yet support es language, so we prevent re-render
-    return nextState.language !== "es";
-  }
+  //   // We don't yet support es language, so we prevent re-render
+  //   return nextState.language !== "es";
+  // }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log("componentWillUpdate", {
-      nextProps,
-      nextState,
-      currentState: this.state,
-      currentProps: this.props,
-    });
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log("componentWillUpdate", {
+  //     nextProps,
+  //     nextState,
+  //     currentState: this.state,
+  //     currentProps: this.props,
+  //   });
+  // }
+
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   console.log("getSnapshotBeforeUpdate", {
+  //     state: this.state,
+  //     props: this.props,
+  //     prevProps,
+  //     prevState,
+  //   });
+
+  //   return { scrollTo: Number.parseInt(Math.random() * 100, 10) };
+  // }
+
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   console.log("componentDidUpdate", {
+  //     state: this.state,
+  //     props: this.props,
+  //     prevProps,
+  //     prevState,
+  //     snapshot,
+  //   });
+
+  //   // to avoid infinite loops, use this.setState conditionally
+  //   // NEVER use this.setState without condition
+  //   // if (this.state.language !== "en") {
+  //   //   this.setState({ language: "en" });
+  //   // }
+
+  //   if (snapshot?.scrollTo) {
+  //     window.scrollTo(0, snapshot.scrollTo);
+  //   }
+  // }
 
   render() {
-    console.log("render");
+    // console.log("render");
     const { language } = this.state;
     const { links, about, education, personalSkills, techSkills, experience, contacts } =
-      data[language];
+      data[language === "es" ? "en" : language];
 
     return (
       <div className="app">
-        <Header language={language} setLanguage={this.setLanguage} />
+        <ErrorBoundary fallback={<p>Headache :(</p>}>
+          <Header language={language} setLanguage={this.setLanguage} />
+        </ErrorBoundary>
         <main className="main">
           <section className="section">
             <ContentBox className="flex-1" title={links.title}>
@@ -119,6 +154,7 @@ class App extends React.Component {
         </main>
         <footer className="footer">
           <Separator />
+          {language === "en" && <Timer />}
           <div className="contacts">
             {contacts.map((data, i) => (
               <ContactBlock key={i} {...data} />

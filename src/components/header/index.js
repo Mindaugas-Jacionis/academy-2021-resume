@@ -1,4 +1,5 @@
 import React from "react";
+
 import data from "./data";
 import "./index.css";
 
@@ -7,24 +8,24 @@ class Header extends React.Component {
   //   console.log("componentWillReceiveProps", { curent: this.props, next: nextProps });
   // }
 
-  state = {
-    random: 13,
-    another: 55,
-  };
+  // state = {
+  //   random: 13,
+  //   another: 55,
+  // };
 
-  static getDerivedStateFromProps(props, state) {
-    console.log("getDerivedStateFromProps", { state, props });
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("getDerivedStateFromProps", { state, props });
 
-    if (props.language === "lt") {
-      return { random: 7 }; // { ...{ random: 13, another: 55 }, ...{ random: 7 } } ---> { another: 55, random: 7 }
-    }
+  //   if (props.language === "lt") {
+  //     return { random: 7 }; // { ...{ random: 13, another: 55 }, ...{ random: 7 } } ---> { another: 55, random: 7 }
+  //   }
 
-    return {}; // { ...{ random: 13, another: 55 }, ...{} } ---> { random: 13, another: 55 }
-  }
+  //   return {}; // { ...{ random: 13, another: 55 }, ...{} } ---> { random: 13, another: 55 }
+  // }
 
   render() {
-    console.log("render Header");
-    const { language, setLanguage } = this.props;
+    // console.log("render Header");
+    const { language = "en", setLanguage = () => {} } = this.props;
 
     return (
       <header className="header">
@@ -45,5 +46,12 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.displayName = "MyAwesomeHeader";
+
+Header.defaultProps = {
+  language: "en",
+  setLanguage: () => {},
+};
 
 export default Header;

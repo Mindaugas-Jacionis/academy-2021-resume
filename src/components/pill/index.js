@@ -7,4 +7,6 @@ function Pill({ children, color }) {
   return <span className={className}>{children}</span>;
 }
 
+Pill.displayName = "Label";
+
 export default Pill;
